@@ -1,0 +1,1 @@
+{'activations': 'tanh', 'batch_size': 512, 'choiceval': 'adam', 'dropout': 0.24295335733172563, 'layers': 3, 'lr': 0.0012168203727788032, 'nb_filters': 32, 'pool_size': 3, 'size': 64}
