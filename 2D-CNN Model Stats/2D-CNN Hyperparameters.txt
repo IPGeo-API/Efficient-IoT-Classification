@@ -1,0 +1,2 @@
+CNN 2D
+{'activations': 'sigmoid', 'batch_size': 1024, 'choiceval': 'rmsprop', 'dropout': 0.29104403739531765, 'filters': 32, 'kernel_size': (3, 3), 'kernel_size_1': (2, 2), 'layers': 2, 'lr': 0.001433773291970261}
