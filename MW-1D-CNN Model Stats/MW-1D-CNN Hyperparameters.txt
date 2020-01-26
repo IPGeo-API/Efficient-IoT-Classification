@@ -1,0 +1,1 @@
+{'activations': 'sigmoid', 'batch_size': 1024, 'choiceval': 'adam', 'dropoutVal': 0.2485206320388983, 'high': 80, 'lr': 0.001362881122433337, 'numFilters': 128}
