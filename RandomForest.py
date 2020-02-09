@@ -1,3 +1,4 @@
+#%% Imports
 import platform
 import sys
 import keras
@@ -56,7 +57,7 @@ def LoadData():
     global feature_columns, response_column, n_features
     subtract_mean = True
     
-    hdf5_file = h5py.File('dataset.hdf5', "r")
+    hdf5_file = h5py.File('Data/dataset.hdf5', "r")
     # read the training mean
     if subtract_mean:
         mm = hdf5_file["train_mean"][...,0]
@@ -75,7 +76,7 @@ def LoadData():
     y_train = np.concatenate((y_train,y_test),axis=0)
     train_shape = (X_train.shape[0], 298, 17, 1)
     
-    hdf5_file = h5py.File('dataset-IoT.hdf5', "r")
+    hdf5_file = h5py.File('Data/dataset-IoT.hdf5', "r")
     # Total number of samples
     data_num_test = hdf5_file["IoT_flow"].shape[0]
     X_test = hdf5_file["IoT_flow"][...,0]
@@ -216,7 +217,7 @@ def Plot_learning_curve(estimator, title, X, y, ylim = None, cv = None,
 #%% Define the hyperparameters for a random search
 
 def Random_Search():
-    global best_model, saved_moldel
+    global best_model, saved_model
     
     param_grid = {"n_estimators": range(20, 100, 20),
                   "max_depth": range(4, 20, 4),
@@ -232,7 +233,7 @@ def Random_Search():
                                    n_iter = n_iter_search,
                                    scoring = 'neg_log_loss',
                                    verbose = 0,
-                                   n_jobs = -1)
+                                   n_jobs = 32)
         
     fit = estimator.fit(X_train, y_train)
 
@@ -243,7 +244,7 @@ def Random_Search():
                         'Learning Curves',
                         X_train, y_train, 
                         cv = cv_,
-                        n_jobs = -1)
+                        n_jobs = 32)
      
     Report_scores(estimator.cv_results_, n_top = 3)
     
@@ -306,3 +307,6 @@ print("\nTotal compute time was: %s" % elapsed)
 
 
 
+
+
+# %%
