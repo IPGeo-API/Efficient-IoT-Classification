@@ -1,0 +1,4 @@
+False Positive Rate,True Positive Rate,Thresholds
+0.0,0.0,2.0
+0.5642986236618935,0.9905072339452164,1.0
+1.0,1.0,0.0
